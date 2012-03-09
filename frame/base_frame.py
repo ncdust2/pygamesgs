@@ -3,22 +3,25 @@
 
 import pygame
 from pygame.locals import QUIT,MOUSEBUTTONDOWN
+from config import *
 import sys 
 
 class BaseFrame:
-    def __init__(self, width, height, title, backgroud, mouse):
+    def __init__(self, width, height, title, background, mouse):
         pygame.init()
         
         self.screen = pygame.display.set_mode((width, height), 0, 32)
         pygame.display.set_caption(title)
+        self.background = background
+        self.mouse = mouse
         self.clock = pygame.time.Clock()
         pygame.mouse.set_visible(False)
         self.loadImg()
 
     def loadImg(self):
 
-        self.background = pygame.image.load(backgroud).convert_alpha()
-        self.mouse_cursor = pygame.image.load(mouse).convert_alpha()
+        self.background = pygame.image.load(self.background).convert_alpha()
+        self.mouse_cursor = pygame.image.load(self.mouse).convert_alpha()
 
     def run(self):
         self.loop()
@@ -30,17 +33,17 @@ class BaseFrame:
             self.draw()
 
     def handleEvents(self):
-        for event in pygame.enent.get():
+        for event in pygame.event.get():
             if event.type == QUIT:
                 pygame.quit()
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 self.mouse_down(event)
-            elif event.type == pygame.MOUSEBUTTONON:
-                self.mouse_on(event)
+            elif event.type == pygame.MOUSEBUTTONUP:
+                self.mouse_up(event)
             elif event.type == pygame.KEYDOWN:
                 self.key_down(event)
-            elif event.type == pygame.KEYON:
-                self.key_on(event)
+            elif event.type == pygame.KEYUP:
+                self.key_up(event)
 
     def draw(self):
 
@@ -56,11 +59,11 @@ class BaseFrame:
     def mouse_down(self,event):
         pass
 
-    def mouse_on(self,event):
+    def mouse_up(self,event):
         pass
 
     def key_down(self,event):
         pass
 
-    def key_on(self,event):
+    def key_up(self,event):
         pass

@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "sgs.py", line 12, in <module>
+    mainFrame.run()
+  File "frame\base_frame.pyo", line 27, in run
+  File "frame\base_frame.pyo", line 33, in loop
+  File "frame\base_frame.pyo", line 51, in draw
+pygame.error: display Surface quit

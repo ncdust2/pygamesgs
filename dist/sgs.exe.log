@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "sgs.py", line 11, in <module>
+  File "frame\base_frame.pyo", line 19, in __init__
+  File "frame\main_frame.pyo", line 8, in loadImg
+  File "frame\base_frame.pyo", line 23, in loadImg
+pygame.error: Couldn't open img/pubu.jpg
